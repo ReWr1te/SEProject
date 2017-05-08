@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<math.h>
+
+struct Box
+{
+	float x1 = -1.0;
+	float x2 = 1.0;
+	float y1 = -1.0;
+	float y2 = 1.0;
+}box;
+struct Block
+{
+	float x = 0.5;
+	float y = 0.5;
+}block;
+
+float findMaxIn2(int m);
+
+int main()
+{
+	printf("%f", findMaxIn2(2));
+	getchar();
+	return 0;
+}
+
+float findMaxIn2(int m)
+{
+	float rBigger = (box.x2+block.x)*sqrt(2)/(1+sqrt(2));
+	return rBigger*rBigger +
+		(m - 1)*((2 * box.x2*sqrt(2) - (sqrt(2) + 1)*rBigger) / (sqrt(2) + 1))*((2 * box.x2*sqrt(2) - (sqrt(2) + 1)*rBigger) / (sqrt(2) + 1));
+}
